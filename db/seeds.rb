@@ -14,7 +14,8 @@ superman = User.create(
   power: "trop fort",
   rating: 3,
   email: "superman@gmail.com",
-  encrypted_password: "IloveLois"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 batman = User.create(
@@ -25,7 +26,8 @@ batman = User.create(
   power: "riche",
   rating: 5,
   email: "batman@gmail.com",
-  encrypted_password: "IloveMarta"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 wolverine = User.create(
@@ -36,7 +38,8 @@ role: "superhero",
 power: "invincible",
 rating: 5,
 email: "wolverine@gmail.com",
-encrypted_password: "IloveJean"
+password: 'topsecret',
+password_confirmation: 'topsecret'
 )
 
 spiderman = User.create(
@@ -47,7 +50,8 @@ spiderman = User.create(
   power: "homme araigné",
   rating: 5,
   email: "spiderman@gmail.com",
-  encrypted_password: "IloveMaryJane"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 deadpool = User.create(
@@ -58,7 +62,8 @@ deadpool = User.create(
   power: "grand blagueur",
   rating: 2.5,
   email: "deadpool@gmail.com",
-  encrypted_password: "IloveSpidy"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 thor = User.create(
@@ -69,7 +74,8 @@ thor = User.create(
   power: "dieu",
   rating: 3.9,
   email: "thor@gmail.com",
-  encrypted_password: "IloveLoki"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 hulk = User.create(
@@ -80,7 +86,8 @@ hulk = User.create(
   power: "fort",
   rating: 2.5,
   email: "hulk@gmail.com",
-  encrypted_password: "IloveHulkWoman"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 wonderwoman = User.create(
@@ -91,7 +98,8 @@ wonderwoman = User.create(
   power: "amazone",
   rating: 2.5,
   email: "wonderwoman@gmail.com",
-  encrypted_password: "IloveSuperman"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 catwoman = User.create(
@@ -102,7 +110,8 @@ catwoman = User.create(
   power: "voleuse",
   rating: 4.5,
   email: "catwoman@gmail.com",
-  encrypted_password: "IloveMoney"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 black_widow = User.create(
@@ -113,7 +122,8 @@ black_widow = User.create(
   power: "assassin",
   rating: 4.5,
   email: "black_widow@gmail.com",
-  encrypted_password: "IloveURSS"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 elektra = User.create(
@@ -124,5 +134,6 @@ elektra = User.create(
   power: "assassin",
   rating: 3.5,
   email: "elektra@gmail.com",
-  encrypted_password: "IloveDardevil"
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
