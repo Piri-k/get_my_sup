@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show, :index ]
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_service, only: [ :show, :edit, :upgrade, :destroy]
 
   def index
