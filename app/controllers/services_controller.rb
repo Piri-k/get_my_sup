@@ -13,7 +13,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-      redirect_to root_path(@service)
+      redirect_to service_path(@service)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class ServicesController < ApplicationController
   def upgrade
     @service.update(service_params)
     if @service.save
-      redirect_to root_path(@service)
+      redirect_to service_path(@service)
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to root_path(@service), status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
