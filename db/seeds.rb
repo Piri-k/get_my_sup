@@ -137,3 +137,13 @@ elektra = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
+
+10.times do |_|
+  Service.create(
+    user_id: rand(2..7),
+    title: 'Save the World',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum mattis erat, id sodales neque posuere in. Praesent pharetra facilisis odio sit amet vehicula. Nullam mattis mi at sapien blandit, non hendrerit risus euismod.',
+    price_day: rand(20..150),
+    location: 'Paris'
+  )
+end
