@@ -143,3 +143,12 @@ User.create(
     location: 'Paris'
   )
 end
+
+Reservation.create(
+  service_id: 1,
+  user_id: 1,
+  start_at: Time.now,
+  end_at: Time.now,
+  message: "bcjc<:n:l!xn sl!k ",
+  address: "cjnqLKCJNLWKCJKWX<CK§MSlwxkw"
+)
