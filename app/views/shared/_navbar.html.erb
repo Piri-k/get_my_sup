@@ -1,9 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-mysuperapp">
   <div class="container-fluid ">
 
-    <a class="navbar-brand" href="#">
-      <img src="https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg" />
-    </a>
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
 
     <form class="form-inline d-flex">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -11,25 +16,27 @@
     </form>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+     <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-
-
           <li class="nav-item">
-            <a class="nav-link" href="#">Message</a>
+            <%= link_to "Index", services_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg" />
+            <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
