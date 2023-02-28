@@ -14,11 +14,13 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
+    @service = Service.find(params[:service_id])
+    @reservation.service = @service
     authorize @reservation
     if @reservation.save
-      redirect_to reservation_path(@reservation)
+      redirect_to service_reservation_path(@reservation)
     else
-      render :new, status: :unprocessable_entity
+      render 'services/show', status: :unprocessable_entity
     end
   end
 
