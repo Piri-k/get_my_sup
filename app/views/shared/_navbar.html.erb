@@ -1,9 +1,11 @@
 <div class="navbar navbar-mysuperapp fixed-top border-bottom navbar-expand-sm ">
   <div class="container-fluid ">
-
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <div class="d-flex align-items-center navbar-nav">
+    <%= link_to root_path, class: "navbar-brand nav-item active" do %>
       <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg" %>
     <% end %>
+    <%= link_to "Home", root_path, class: "nav-link" %>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,11 +20,13 @@
      <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to current_user.alias, '#', class: "nav-link" %>
           </li>
+
           <li class="nav-item dropdown">
             <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
               <%= link_to "Profil", 'user_path(current_user)', class: "dropdown-item" %>
               <%= link_to "Index", services_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
