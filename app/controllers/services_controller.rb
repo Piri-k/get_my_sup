@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_service, only: [ :show, :edit, :upgrade, :destroy]
+  before_action :set_service, only: [ :show, :edit, :update, :destroy]
 
   def index
     @services = policy_scope(Service)
@@ -13,6 +13,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @service.user = current_user
     authorize @service
     if @service.save
       redirect_to service_path(@service)
@@ -29,7 +30,7 @@ class ServicesController < ApplicationController
     authorize @service
   end
 
-  def upgrade
+  def update
     @service.update(service_params)
     authorize @service
     if @service.save
