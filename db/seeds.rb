@@ -15,7 +15,8 @@ superman = User.create(
   rating: 3,
   email: "superman@gmail.com",
   password: 'topsecret',
-  password_confirmation: 'topsecret'
+  password_confirmation: 'topsecret',
+  admin: true
 )
 
 batman = User.create(

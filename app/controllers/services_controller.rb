@@ -3,15 +3,17 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :upgrade, :destroy]
 
   def index
-    @services = Service.all
+    @services = policy_scope(Service)
   end
 
   def new
     @service = Service.new
+    authorize @service
   end
 
   def create
     @service = Service.new(service_params)
+    authorize @service
     if @service.save
       redirect_to service_path(@service)
     else
@@ -20,13 +22,16 @@ class ServicesController < ApplicationController
   end
 
   def show
+    authorize @service
   end
 
   def edit
+    authorize @service
   end
 
   def upgrade
     @service.update(service_params)
+    authorize @service
     if @service.save
       redirect_to service_path(@service)
     else
@@ -35,6 +40,7 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    authorize @service
     @service.destroy
     redirect_to root_path, status: :see_other
   end
