@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation.service = @service
     authorize @reservation
     if @reservation.save
-      redirect_to service_reservation_path(@reservation)
+      redirect_to service_reservation_path(@service, @reservation)
     else
       render 'services/show', status: :unprocessable_entity
     end

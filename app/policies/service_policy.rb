@@ -23,7 +23,7 @@ class ServicePolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user || user.admin?
+    user == record.user || user.nil? ? false : user.admin?
   end
 
   def edit?
@@ -31,6 +31,6 @@ class ServicePolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == record.user || user.admin?
+    user == record.user || user.nil? ? false : user.admin?
   end
 end
