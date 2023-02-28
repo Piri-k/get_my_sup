@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-mysuperapp">
+<div class="navbar fixed-top border-bottom navbar-expand-sm navbar-mysuperapp ">
   <div class="container-fluid ">
 
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg" %>
     <% end %>
 
@@ -9,10 +9,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <form class="form-inline d-flex">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
     </form>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -21,14 +20,11 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Index", services_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Profil", 'user_path(current_user)', class: "dropdown-item" %>
+              <%= link_to "Index", services_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
@@ -39,5 +35,6 @@
         <% end %>
       </ul>
     </div>
+
   </div>
 </div>
