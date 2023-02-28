@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-superman = User.create(
+User.destroy_all
+Service.destroy_all
+
+User.create(
   first_name: "Clark",
   last_name: "Kent",
   alias: "Superman",
@@ -15,10 +18,10 @@ superman = User.create(
   rating: 3,
   email: "superman@gmail.com",
   password: 'topsecret',
-  password_confirmation: 'topsecret'
+  password_confirmation: 'topsecret',
+  admin: true
 )
-
-batman = User.create(
+User.create(
   first_name: "Bruce",
   last_name: "Wayne",
   alias: "Batman",
@@ -29,8 +32,7 @@ batman = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-wolverine = User.create(
+User.create(
 first_name: "James",
 last_name: "Howlett",
 alias: "Wolverine",
@@ -41,8 +43,7 @@ email: "wolverine@gmail.com",
 password: 'topsecret',
 password_confirmation: 'topsecret'
 )
-
-spiderman = User.create(
+User.create(
   first_name: "Peter",
   last_name: "Parker",
   alias: "Spiderman",
@@ -53,8 +54,7 @@ spiderman = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-deadpool = User.create(
+User.create(
   first_name: "Wade",
   last_name: "Wilson",
   alias: "Deadpool",
@@ -65,8 +65,7 @@ deadpool = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-thor = User.create(
+User.create(
   first_name: "Thor",
   last_name: "Odinson",
   alias: "Thor",
@@ -78,7 +77,7 @@ thor = User.create(
   password_confirmation: 'topsecret'
 )
 
-hulk = User.create(
+User.create(
   first_name: "Bruce",
   last_name: "Banner",
   alias: "Hulk",
@@ -89,8 +88,7 @@ hulk = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-wonderwoman = User.create(
+User.create(
   first_name: "Diana",
   last_name: "Princess",
   alias: "Wonderman",
@@ -101,8 +99,7 @@ wonderwoman = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-catwoman = User.create(
+User.create(
   first_name: "Selina",
   last_name: "Kyle",
   alias: "Catwoman",
@@ -113,8 +110,7 @@ catwoman = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-black_widow = User.create(
+User.create(
   first_name: "Natasha",
   last_name: "Romanoff",
   alias: "Black Widow",
@@ -125,8 +121,7 @@ black_widow = User.create(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-
-elektra = User.create(
+User.create(
   first_name: "Elektra",
   last_name: "Natchios",
   alias: "Elektra",
@@ -140,7 +135,7 @@ elektra = User.create(
 
 10.times do |_|
   Service.create(
-    user_id: rand(2..7),
+    user_id: rand(0..10),
     title: 'Save the World',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum mattis erat, id sodales neque posuere in. Praesent pharetra facilisis odio sit amet vehicula. Nullam mattis mi at sapien blandit, non hendrerit risus euismod.',
     price_day: rand(20..150),
