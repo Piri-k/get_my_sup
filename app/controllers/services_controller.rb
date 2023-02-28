@@ -23,6 +23,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
     authorize @service
   end
 

@@ -1,0 +1,7 @@
+<%= simple_form_for [service, reservation] do |f| %>
+  <%= f.input :start_at %>
+  <%= f.input :end_at %>
+  <%= f.input :message %>
+  <%= f.input :address %>
+  <%= f.button :submit, class: "btn btn-primary mt-3" %>
+<% end %>

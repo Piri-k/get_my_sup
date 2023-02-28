@@ -47,6 +47,21 @@
     <hr>
     <h6> <i class="fa-sharp fa-solid fa-calendar"></i> <%= @service.created_at.to_date %></h5>
     <p><%= @service.price_day %>€</p>
-    <button type="button btn-sm" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Réserver</button>
   </div>
+
+    <% if policy(@service).edit? %>
+      <%= link_to "Edit this service", edit_service_path(@service) %> |
+    <% end %>
+    <%if policy(@service).destroy? %>
+    <%= link_to service_path(@service), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+    Destroy this service
+    <% end %>
+    <% end %>
+  <hr>
+
+    <div>
+      <h1 class="mb-4">Make a reservation</h1>
+      <%= render "reservations/form", service: @service, reservation: @reservation %>
+  </div>
+
 </div>
