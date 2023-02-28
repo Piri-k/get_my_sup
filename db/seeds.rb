@@ -21,6 +21,7 @@ User.create(
   password_confirmation: 'topsecret',
   admin: true
 )
+# Service.create(title: "test", content: "helloo", price_day: '111€', location: "here", user: superman)
 User.create(
   first_name: "Bruce",
   last_name: "Wayne",
@@ -135,7 +136,7 @@ User.create(
 
 10.times do |_|
   Service.create(
-    user_id: rand(0..10),
+    user_id: User.all.sample.id,
     title: 'Save the World',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum mattis erat, id sodales neque posuere in. Praesent pharetra facilisis odio sit amet vehicula. Nullam mattis mi at sapien blandit, non hendrerit risus euismod.',
     price_day: rand(20..150),
