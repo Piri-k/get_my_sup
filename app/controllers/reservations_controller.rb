@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @reservations = policy_scope(reservation)
+    @reservations = policy_scope(Reservation)
   end
 
   def new
