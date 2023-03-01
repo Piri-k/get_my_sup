@@ -6,5 +6,5 @@
 <p>End <%= @reservation.end_at %> </p>
 <p><%= @reservation.address %></p>
 <p><%= @reservation.message %></p>
-<%= link_to 'Show', service_path(@reservation), class:"btn btn-primary" %>
+<%= link_to 'Show', service_path(@reservation.service), class:"btn btn-primary" %>
 </div>

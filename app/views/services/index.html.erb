@@ -1,6 +1,6 @@
 <h1 class="text-center">My Service</h1>
-
 <div class="container">
+<%= link_to "Add a service", new_service_path, class: "btn btn-primary" %>
   <div class="row">
     <% @services.each do |service| %>
       <div class="col-4">
