@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = policy_scope(Reservation)
+    @services = policy_scope(Service)
   end
 
   def new

@@ -23,7 +23,8 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.service.user || user.nil? ? false : user.admin?
+    (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
+    #(record.nil? ? (user == record.service.user) : false) || (user.nil? ? false : user.admin?) || user == record.user
   end
 
   def edit?
@@ -31,6 +32,6 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.nil? ? false : user.admin?
+    (user.nil? ? false : user.admin?)
   end
 end

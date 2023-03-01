@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
   belongs_to :user
+  has_many :reservations
 
   validates :title, presence: true
   validates :content, presence: true
