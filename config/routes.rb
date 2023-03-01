@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :services do
     resources :reservations, except: [:index, :destroy]
   end
+
   resources :reservations, only: [ :index, :destroy ]
+
+  get 'user/:id', to: 'pages#profil', as: :user
+
   # Defines the root path route ("/")
   # root "articles#index",
 end
