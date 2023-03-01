@@ -3,5 +3,6 @@
   <%= f.input :content %>
   <%= f.input :price_day, label: "Price per day"%>
   <%= f.input :location %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: "btn btn-primary mt-3" %>
 <% end %>
