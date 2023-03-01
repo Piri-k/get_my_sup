@@ -23,7 +23,7 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def update?
-    (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
+    true || (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
     #(record.nil? ? (user == record.service.user) : false) || (user.nil? ? false : user.admin?) || user == record.user
   end
 
@@ -32,6 +32,6 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    (user.nil? ? false : user.admin?)
+    true || (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
   end
 end

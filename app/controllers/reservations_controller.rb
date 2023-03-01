@@ -46,7 +46,7 @@ class ReservationsController < ApplicationController
   def destroy
     authorize @reservation
     @reservation.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to reservations_path, status: :see_other
   end
 
   private

@@ -12,7 +12,11 @@
               <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
                   <% if policy(Reservation).edit? %>
                   <%= link_to "Edit this reservation", edit_service_reservation_path(reservation.service, reservation) %> |
-                <% end %>
+                  <% end %>
+                     <%if policy(Reservation).destroy? %>
+                      <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+                      Destroy this reservation <% end %>
+                  <% end %>
               </div>
             </div>
           </div>
@@ -33,6 +37,10 @@
                 <% if policy(Reservation).edit? %>
                   <%= link_to "Edit this reservation", edit_service_reservation_path(service, reservation) %> |
                 <% end %>
+                 <%if policy(Reservation).destroy? %>
+                      <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+                      Destroy this reservation <% end %>
+                      <% end %>
               </div>
             </div>
           </div>
