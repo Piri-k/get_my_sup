@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :services do
     resources :reservations
   end
+  get 'user/:id', to: 'pages#profil', as: :user
   # Defines the root path route ("/")
   # root "articles#index",
 end
