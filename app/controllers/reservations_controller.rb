@@ -3,8 +3,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @reservations = policy_scope(Reservation)
-    @services = policy_scope(Service)
+    @reservations = policy_scope(reservation)
   end
 
   def new
@@ -46,7 +45,7 @@ class ReservationsController < ApplicationController
   def destroy
     authorize @reservation
     @reservation.destroy
-    redirect_to reservations_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private

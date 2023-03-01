@@ -27,10 +27,8 @@
             <%= image_tag "https://www.ecranlarge.com/uploads/image/001/021/deadpool-photo-1021856.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-
-              <%= link_to "Profil", 'user_path(current_user)', class: "dropdown-item" %>
-              <%= link_to "Index", services_path, class: "dropdown-item" %>
-              <%= link_to "My reservations",  reservations_path, class: "dropdown-item" %>
+              <%= link_to "My Profil", user_path(current_user.id), class: "dropdown-item" %>
+              <%= link_to "My Services", services_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

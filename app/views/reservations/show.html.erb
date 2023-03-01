@@ -1,10 +1,9 @@
-<div class="container">
-<h1>Reservation</h1>
+<h1>reservation</h1>
+
 <p><%= @reservation.user.alias %></p>
 <p><%= @reservation.service.title %></p>
 <p>Start <%= @reservation.start_at %></p>
 <p>End <%= @reservation.end_at %> </p>
 <p><%= @reservation.address %></p>
 <p><%= @reservation.message %></p>
-<%= link_to 'Show', service_path(@reservation), class:"btn btn-primary" %>
-</div>
+<%= link_to 'Show tarace', service_path(@reservation), class:"btn btn-primary" %>

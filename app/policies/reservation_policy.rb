@@ -1,9 +1,9 @@
 class ReservationPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.all
-    end
+    # def resolve
+    #   scope.all
+    # end
   end
 
   def index?
@@ -23,8 +23,7 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def update?
-    true || (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
-    #(record.nil? ? (user == record.service.user) : false) || (user.nil? ? false : user.admin?) || user == record.user
+    user == record.service.user || user.nil? ? false : user.admin?
   end
 
   def edit?
@@ -32,6 +31,6 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true || (record.nil? ? (user == Reservation.find(1).service.user) : false) || (user.nil? ? false : user.admin?) || user == Reservation.find(1).user
+    user.nil? ? false : user.admin?
   end
 end
