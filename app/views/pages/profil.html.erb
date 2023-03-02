@@ -1,18 +1,22 @@
-<div class="card" style="width: 100;">
-  <div class="card-body">
-    <h3 class="card-title text-center">Profil</h3>
-  </div>
-  <img src="https://www.leparisien.fr/resizer/5MGqqaKgJN63GSwsBrkDKwy-A6E=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/BUJDK3PSVVE4NMVQVGVNCQRGJM.jpg" class="card-img-top" alt="#">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item text-center"><%= @user.alias %></li>
-    <li class="list-group-item text-center"><%= @user.first_name %> <%= @user.last_name %></li>
-    <li class="list-group-item text-center"><%= @user.power %></li>
-    <li class="list-group-item text-center"><%= @user.role%></li>
-    <li class="list-group-item text-center"><%= @user.email %></li>
-  </ul>
-  <% if @user == current_user %>
+<div class= 'container'>
+  <div class="card border border-dark" style="width:40;">
     <div class="card-body">
-      <%= link_to 'modificatatation', edit_user_registration_path, class:"card-link"  %>
+      <h3 class="card-title text-center">Profil</h3>
     </div>
-  <% end %>
+    <img src="https://static-mapetitemercerie.o10c.net/57341-large_default/thermocollant-brode-batman-profil.jpg" class="rounded mx-auto d-block" alt="...">
+    <style>
+    ul{list-style:none}
+    </style>
+    <ul class="list-group list-group-flush list-style-type: none;">
+      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.alias %></li>
+      <li class="text-center p-3 mb-1"><%= @user.first_name %> <%= @user.last_name %></li>
+      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.power %></li>
+      <li class="text-center p-3 mb-1 text-decoration-none"><%= @user.role%></li>
+      <li class="text-center p-3 bg-dark text-white"><%= @user.email %></li>
+    </ul>
+    <% if @user == current_user %>
+        <%= link_to 'modificatatation', edit_user_registration_path, class:"card-link text-decoration-none text-white text-center bg-secondary p-3" %>
+    <% end %>
+    <%  %>
+  </div>
 </div>
