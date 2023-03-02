@@ -14,6 +14,11 @@
         <%= cl_image_tag photo.key, height: 720, width: 1280, crop: :fill, class: "d-block" %>
       </div>
     <% end %>
+    <% if @service.photos[0].nil? %>
+      <div class="carousel-item active">
+        <%= cl_image_tag (@service.user.photo.present? ? @service.user.photo.key : "logo.png"), height: 720, width: 1280, crop: :fill, :gravity=>"auto", class: "d-block" %>
+      </div>
+    <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -1,9 +1,7 @@
-<div class= 'container'>
-  <div class="card border border-dark" style="width:40;">
     <div class="card-body">
       <h3 class="card-title text-center">Profil</h3>
     </div>
-    <img src="https://static-mapetitemercerie.o10c.net/57341-large_default/thermocollant-brode-batman-profil.jpg" class="rounded mx-auto d-block" alt="...">
+    <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), class: "rounded mx-auto d-block" %>
     <style>
     ul{list-style:none}
     </style>
