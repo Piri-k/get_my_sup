@@ -6,32 +6,33 @@
     <h6 class="me-5"> <i class="fa-solid fa-star"></i> <%= @service.user.rating %></h6>
     <h6> <i class="fa-solid fa-location-dot"></i> <%= @service.location %></h6>
   </div>
-
-  <div id="carouselExample" class="carousel slide mt-4">
-  <div class="carousel-inner">
-    <% @service.photos.each do |photo| %>
-      <div class="carousel-item active">
-        <%= cl_image_tag photo.key, height: 720, width: 1280, crop: :fill, class: "d-block" %>
-      </div>
-    <% end %>
-    <% if @service.photos[0].nil? %>
-      <div class="carousel-item active">
-        <%= cl_image_tag (@service.user.photo.present? ? @service.user.photo.key : "logo.png"), height: 720, width: 1280, crop: :fill, :gravity=>"auto", class: "d-block" %>
-      </div>
-    <% end %>
+  <div class="d-flex justify-content-center">
+    <div id="carouselExample" class="carousel slide mt-4">
+    <div class="carousel-inner mx-auto">
+      <% @service.photos.each do |photo| %>
+        <div class="carousel-item active">
+          <%= cl_image_tag photo.key, height: 480, width: 720, crop: :fill, class: "d-block" %>
+        </div>
+      <% end %>
+      <% if @service.photos[0].nil? %>
+        <div class="carousel-item active">
+          <%= cl_image_tag (@service.user.photo.present? ? @service.user.photo.key : "logo.png"), height: 480, width: 720, crop: :fill, :gravity=>"auto", class: "d-block" %>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 
 
-  <div class="row mt-4 w-75">
+  <div class="row mt-4 w-100">
     <div class="d-flex justify-content-between mb-2">
       <div class="d-flex align-item-center">
       <h6 class="me-5 m-auto"> <i class="fa-solid fa-mask"></i> <%= @service.user.alias %> </h6>

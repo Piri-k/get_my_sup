@@ -1,20 +1,33 @@
-    <div class="card-body">
-      <h3 class="card-title text-center">Profil</h3>
+   <div class="container ">
+    <h3 class="card-title text-center my-3">Profil</h3>
+    <div class="d-flex align-items-center">
+    <div class="me-5">
+      <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), height: 250, width: 250, crop: :fill, :gravity=>"auto", class: "rounded-circle mx-auto d-block" %>
+      <div>
+        <div class="d-flex justify-content-around mt-3">
+        <p><i class="fa-solid fa-mask me-2"></i> <%= @user.alias %></p>
+        <% if @user == current_user %>
+        <p><i class="fa-solid fa-at me-2"></i><%= @user.first_name %> <%= @user.last_name %></li></p>
+        <% end %>
+        </div>
+        <div class="d-flex justify-content-around">
+          <p><i class="fa-solid fa-user me-2"></i> <%= @user.role%></p>
+          <p><i class="fa-solid fa-hand-fist me-2"></i> <%= @user.power %></p>
+        </div>
+      </div>
     </div>
-    <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), class: "rounded mx-auto d-block" %>
-    <style>
-    ul{list-style:none}
-    </style>
-    <ul class="list-group list-group-flush list-style-type: none;">
-      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.alias %></li>
-      <li class="text-center p-3 mb-1"><%= @user.first_name %> <%= @user.last_name %></li>
-      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.power %></li>
-      <li class="text-center p-3 mb-1 text-decoration-none"><%= @user.role%></li>
-      <li class="text-center p-3 bg-dark text-white"><%= @user.email %></li>
-    </ul>
+      <p>Hey there, it's your friendly neighborhood Spider-Man, and I'm excited to offer my services through this rental app. <br>
+          As a spider-powered hero, I have the ability to climb walls, swing through the air, and sense danger before it happens. I'm also incredibly agile and have lightning-fast reflexes, making me a force to be reckoned with in combat.<br>
+          In addition to my physical abilities, I'm a quick thinker and have a great sense of humor. I use these qualities to stay one step ahead of my enemies and keep the people of New York City safe.<br>
+          If you need help stopping a bank robbery, rescuing a kitten from a tree, or just need someone to lend a hand, I'm your guy. Just reach out to me through this app, and I'll be there in a flash.<br>
+          Please note that while I like to have fun and crack jokes, I take my responsibilities as a hero very seriously. I always put the safety of others first and will do whatever it takes to protect innocent people from harm.<br>
+          Thank you for considering me for your rental needs, and I look forward to working with you to make New York City a safer and better place for everyone.</p>
+    </div>
     <% if @user == current_user %>
-        <%= link_to 'modificatatation', edit_user_registration_path, class:"card-link text-decoration-none text-white text-center bg-secondary p-3" %>
+      <p><strong>Email:</strong> <%= @user.email %></p>
+      <%= link_to 'Edit your profil', edit_user_registration_path, class:"btn btn-secondary rounded-pill p-3 my-3" %>
     <% end %>
     <%  %>
   </div>
+</div>
 </div>

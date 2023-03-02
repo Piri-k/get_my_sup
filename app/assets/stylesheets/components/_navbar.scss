@@ -1,7 +1,8 @@
 .navbar-mysuperapp {
   justify-content: space-between;
-  background-color: #f4f4f4;
+  background-color: $navbar;
   padding: 15px;
+
 }
 
 .navbar-mysuperapp .navbar-collapse {
@@ -9,5 +10,9 @@
 }
 
 .navbar-mysuperapp .navbar-brand img {
-  width: 60px;
+  width: 40px;
+}
+
+.navbar {
+   color: $text;
 }
