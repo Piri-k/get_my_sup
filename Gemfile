@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem "devise"
 
+gem "pg_search"
+
 gem "omniauth"
 
 gem "pundit"
