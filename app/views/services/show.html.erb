@@ -14,6 +14,11 @@
         <%= cl_image_tag photo.key, height: 720, width: 1280, crop: :fill, class: "d-block" %>
       </div>
     <% end %>
+    <% if @service.photos[0].nil? %>
+      <div class="carousel-item active">
+        <%= cl_image_tag (@service.user.photo.present? ? @service.user.photo.key : "logo.png"), height: 720, width: 1280, crop: :fill, :gravity=>"auto", class: "d-block" %>
+      </div>
+    <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,7 +37,7 @@
       <h6 class="me-5 m-auto"> <i class="fa-solid fa-mask"></i> <%= @service.user.alias %> </h6>
       <h6 class="m-auto"> <i class="fa-solid fa-hand-sparkles"></i> <%= @service.user.power.capitalize %></h6>
       </div>
-      <%= image_tag "https://www.gala.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2Fvar.2Fgal.2Fstorage.2Fimages.2Fmedia.2Fmultiupload_du_18_juin_2013.2Fsuperman.2F2209253-1-fre-FR.2Fsuperman.2Ejpg/420x420/quality/80/man-of-steel-superman-d-un-s-qui-veut-dire.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= cl_image_tag (@service.user.photo.present? ? @service.user.photo.key : "logo.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     </div>
 
     <hr>
