@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :role, :email, presence: true
   validates :power, :alias, presence: true, if: (:role == "superhero")
   validates :email, uniqueness: true
+  validates :role, inclusion: { in: ["Superhero", "Human"] }
 end

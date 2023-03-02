@@ -3,7 +3,7 @@
     <% @services.each do |service|  %>
       <div class="col-4">
         <%= link_to service_path(service), class: 'text-decoration-none text-black' do %>
-        <div class="card mb-3">
+        <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded">
           <%= cl_image_tag (service.photos[0].present? ? service.photos[0].key : "logo.png"), height: 400, width: 400, crop: :fill, :gravity=>"auto", class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= service.title %></h5>
