@@ -3,7 +3,17 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @services = policy_scope(Service)
+    if params[:query].present?
+      # sql_query = <<~SQL
+      #   services.title @@ :query
+      #   OR services.content @@ :query
+      #   OR services.location @@ :query
+      # SQL
+      # @services = policy_scope(Service.where(sql_query, query: "%#{params[:query]}%"))
+      @services = policy_scope(Service.search_by_something(params[:query]))
+    else
+      @services = policy_scope(Service)
+    end
   end
 
   def new
