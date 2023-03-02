@@ -1,18 +1,20 @@
-<div class="card" style="width: 100;">
-  <div class="card-body">
-    <h3 class="card-title text-center">Profil</h3>
-  </div>
-  <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), class: "" %>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item text-center"><%= @user.alias %></li>
-    <li class="list-group-item text-center"><%= @user.first_name %> <%= @user.last_name %></li>
-    <li class="list-group-item text-center"><%= @user.power %></li>
-    <li class="list-group-item text-center"><%= @user.role%></li>
-    <li class="list-group-item text-center"><%= @user.email %></li>
-  </ul>
-  <% if @user == current_user %>
     <div class="card-body">
-      <%= link_to 'modificatatation', edit_user_registration_path, class:"card-link"  %>
+      <h3 class="card-title text-center">Profil</h3>
     </div>
-  <% end %>
+    <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), class: "rounded mx-auto d-block" %>
+    <style>
+    ul{list-style:none}
+    </style>
+    <ul class="list-group list-group-flush list-style-type: none;">
+      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.alias %></li>
+      <li class="text-center p-3 mb-1"><%= @user.first_name %> <%= @user.last_name %></li>
+      <li class="text-center p-3 mb-1 bg-dark text-white"><%= @user.power %></li>
+      <li class="text-center p-3 mb-1 text-decoration-none"><%= @user.role%></li>
+      <li class="text-center p-3 bg-dark text-white"><%= @user.email %></li>
+    </ul>
+    <% if @user == current_user %>
+        <%= link_to 'modificatatation', edit_user_registration_path, class:"card-link text-decoration-none text-white text-center bg-secondary p-3" %>
+    <% end %>
+    <%  %>
+  </div>
 </div>
