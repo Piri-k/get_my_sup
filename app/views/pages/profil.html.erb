@@ -2,7 +2,7 @@
   <div class="card-body">
     <h3 class="card-title text-center">Profil</h3>
   </div>
-  <img src="https://www.leparisien.fr/resizer/5MGqqaKgJN63GSwsBrkDKwy-A6E=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/BUJDK3PSVVE4NMVQVGVNCQRGJM.jpg" class="card-img-top" alt="#">
+  <%= cl_image_tag (@user.photo.present? ? @user.photo.key : "logo.png"), class: "" %>
   <ul class="list-group list-group-flush">
     <li class="list-group-item text-center"><%= @user.alias %></li>
     <li class="list-group-item text-center"><%= @user.first_name %> <%= @user.last_name %></li>
