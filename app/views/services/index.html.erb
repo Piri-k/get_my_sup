@@ -1,24 +1,10 @@
 <h1 class="text-center">My Service</h1>
 <div class="container">
-<%= link_to "Add a service", new_service_path, class: "btn btn-primary" %>
+<%= link_to new_service_path, class: "btn btn-info mb-3 rounded-pill" do %>
+<span><i class="fa-solid fa-plus"></i>Add a service</span>
+<% end %>
   <div class="row">
-    <% @services.each do |service| %>
-      <div class="col-4">
-        <%= link_to service_path(service), class: 'text-decoration-none text-black' do %>
-        <div class="card mb-3">
-          <%= cl_image_tag (service.photos[0].present? ? service.photos[0].key : "logo.png"), class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= service.title %></h5>
-            <h5 class="card-title"><%= service.content %></h5>
-            <p class="card-text"><%= service.user.alias %></p>
-            <p class="card-text"><%= service.price_day %>€/day</p>
-            <p class="card-text"><%= service.location %></p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <% end %>
-      </div>
-      <% end  %>
+    <%= render "shared/service_cards", service: @service%>
   </div>
 </div>
 
