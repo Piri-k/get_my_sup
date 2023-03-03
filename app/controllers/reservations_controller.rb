@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_reservation, only: [ :show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [ :show, :edit, :update, :destroy, :accepted]
 
   def index
     @reservations = policy_scope(Reservation)
@@ -34,19 +34,27 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation.update(reservation_params)
-    authorize @reservation
-    if @reservation.save
-      redirect_to reservation_path(@reservation)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @reservation.update({accepted: true})
+
+
+
+    # @reservation.update(reservation_params)
+    # authorize @reservation
+    # if @reservation.save
+    #   redirect_to reservation_path(@reservation)
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def destroy
     authorize @reservation
     @reservation.destroy
     redirect_to reservations_path, status: :see_other
+  end
+
+  def accepted
+    @reservation.update({ accepted: true })
   end
 
   private
