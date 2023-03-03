@@ -19,9 +19,6 @@
               <p class="card-text"> <i class="fa-sharp fa-solid fa-calendar"></i> <%= reservation.start_at %> - <%= reservation.end_at %></p>
               <p class="card-text"> <i class="fa-solid fa-location-dot"></i> <%= reservation.address %></p>
               <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
-              <% if policy(Reservation).edit? %>
-              <%= link_to "Edit this reservation", edit_service_reservation_path(reservation.service, reservation) %> |
-              <% end %>
               <%if policy(Reservation).destroy? %>
                 <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
                 Destroy this reservation
@@ -47,13 +44,20 @@
               <p class="card-text"> <i class="fa-sharp fa-solid fa-calendar"></i> <%= reservation.start_at %> - <%= reservation.end_at %></p>
               <p class="card-text"> <i class="fa-solid fa-location-dot"></i> <%= reservation.address %></p>
               <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
+              <div data-reservation-validation-target="accepted" class=<%= reservation.accepted ? "d-none" : "hello" %> >
               <% if policy(Reservation).edit? %>
-                <%= link_to "Edit this reservation", edit_service_reservation_path(service, reservation) %> |
-              <% end %>
-              <%if policy(Reservation).destroy? %>
-                <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
-                Destroy this reservation
+                <%= simple_form_for([reservation.service, reservation], data: { reservation_validation_target: "form", action: "submit->reservation-validation#send" })  do |f| %>
+                  <%= f.submit label: "Accept this reservation?"%>
                 <% end %>
+              <% end %>
+              </div>
+              <div class=<%= reservation.accepted ? "hello" : "d-none" %> data-reservation-validation-target="accepted">
+                Reservation accepted
+              </div>
+
+              <%if policy(Reservation).destroy? %>
+                <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-danger" do %>
+                Destroy this reservation <% end %>
               <% end %>
             </div>
           </div>

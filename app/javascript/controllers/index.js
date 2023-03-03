@@ -10,5 +10,7 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ReservationValidationController from "./reservation_validation_controller"
+application.register("reservation-validation", ReservationValidationController)
 import MapController from "./map_controller"
 application.register("map", MapController)

@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_03_03_130503) do
 
   # These are extensions that must be enabled in order to support this database
@@ -53,6 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_130503) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "activated", default: true
+    t.boolean "accepted", default: false
     t.index ["service_id"], name: "index_reservations_on_service_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

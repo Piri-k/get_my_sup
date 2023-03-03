@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :reservations, only: [ :index, :destroy ]
 
   get 'users/:id', to: 'pages#profil', as: :user
+  patch 'services/reservations', to: "reservations#accepted", as: :accepted
 
   # Defines the root path route ("/")
   # root "articles#index",
