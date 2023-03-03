@@ -1,29 +1,39 @@
-<div class="container" data-controller="reservation-validation">
-  <div class="row">
-    <h1 class="pb-4">My reservations :</h1>
-    <% @reservations.each do |reservation| %>
-      <div class="col-4">
-        <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-text"><%= reservation.service.title %></h5>
-            <p class="card-text"> <i class="fa-solid fa-mask"></i> <%= reservation.service.user.alias %></p>
-            <p class="card-text"> <i class="fa-sharp fa-solid fa-calendar"></i> <%= reservation.start_at %> - <%= reservation.end_at %></p>
-            <p class="card-text"> <i class="fa-solid fa-location-dot"></i> <%= reservation.address %></p>
-            <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
-            <%if policy(Reservation).destroy? %>
-              <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
-              Destroy this reservation
-              <% end %>
-            <% end %>
-        </div>
-        </div>
-      </div>
-    <% end %>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">My reservations</button>
+      <% if current_user.role == 'Superhero' %>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My bookings</button>
+      <% end %>
   </div>
-
-
-  <div class="row">
-   <h1 class="pt-4 pb-4">My bookings :</h1>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+    <div class="container mt-3">
+      <div class="row">
+        <% @reservations.each do |reservation| %>
+          <div class="col-4">
+            <div class="card mb-3">
+              <div class="card-body">
+              <h5 class="card-text"><%= reservation.service.title %></h5>
+              <p class="card-text"> <i class="fa-solid fa-mask"></i> <%= reservation.service.user.alias %></p>
+              <p class="card-text"> <i class="fa-sharp fa-solid fa-calendar"></i> <%= reservation.start_at %> - <%= reservation.end_at %></p>
+              <p class="card-text"> <i class="fa-solid fa-location-dot"></i> <%= reservation.address %></p>
+              <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
+              <%if policy(Reservation).destroy? %>
+                <%= link_to reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+                Destroy this reservation
+                <% end %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+  <div class="container mt-3">
+   <div class="row">
     <% @services.each do |service| %>
       <% service.reservations.each do |reservation| %>
         <div class="col-4">
@@ -54,5 +64,6 @@
         </div>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>
