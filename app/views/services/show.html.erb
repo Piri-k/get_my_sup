@@ -45,8 +45,22 @@
     <h2>Description :</h2>
     <p><%= @service.content %></p>
     <hr>
-    <h6> <i class="fa-sharp fa-solid fa-calendar"></i> <%= @service.created_at.to_date %></h5>
-    <p><%= @service.price_day %>€</p>
+
+    <div>
+      <div>
+      <h6> <i class="fa-sharp fa-solid fa-calendar"></i> <%= @service.created_at.to_date %></h5>
+      <p><%= @service.price_day %>€</p>
+      </div>
+      <div>
+      <p>Location:</p>
+      <div style="width: 30%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      </div>
+  </div>
+
   </div>
 
     <% if policy(@service).edit? %>
@@ -63,11 +77,4 @@
       <h1 class="mb-4">Make a reservation</h1>
       <%= render "reservations/form", service: @service, reservation: @reservation %>
     </div>
-
-  <div style="width: 40%; height: 300px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 </div>
