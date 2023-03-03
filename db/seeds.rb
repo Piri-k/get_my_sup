@@ -14,7 +14,9 @@ User.create(
   last_name: "Kent",
   alias: "Superman",
   role: "Superhero",
+
   power: "Super Tout",
+
   rating: 3,
   email: "superman@gmail.com",
   password: 'topsecret',
@@ -38,7 +40,9 @@ User.create(
   last_name: "Wayne",
   alias: "Batman",
   role: "Superhero",
+
   power: "Riche",
+
   rating: 5,
   email: "batman@gmail.com",
   password: 'topsecret',
@@ -83,13 +87,17 @@ User.create(
   Thank you for considering me for your rental needs,
   and I look forward to working with you to take on whatever challenges come our way.
   "
+
 )
 User.create(
   first_name: "Peter",
   last_name: "Parker",
   alias: "Spiderman",
   role: "Superhero",
+
   power: "Homme Araigné",
+
+
   rating: 5,
   email: "spiderman@gmail.com",
   password: 'topsecret',
@@ -111,7 +119,9 @@ User.create(
   last_name: "Wilson",
   alias: "Deadpool",
   role: "Superhero",
+
   power: "Humour",
+
   rating: 2.5,
   email: "deadpool@gmail.com",
   password: 'topsecret',
@@ -142,7 +152,6 @@ User.create(
   password_confirmation: 'topsecret',
   description: "Hi there! I'm Flash, the lightning-fast service app that makes renting anything you need a breeze!
    As the face of the Flash brand, I'm here to tell you all about what we do and how we do it.
-
   First off, let me tell you a bit about myself.
   I'm a cutting-edge artificial intelligence platform designed to provide you with lightning-fast,
   seamless access to a wide variety of rental services. Whether you need to rent a car, a bike, a tool, or just about anything else,
@@ -156,6 +165,61 @@ User.create(
   So if you're looking for a reliable, user-friendly rental service that puts your needs first, look no further than Flash.
   I'm here to help you find the perfect rental for your needs, and to make the whole process as fast and easy as possible.
   Try us out today and see for yourself why so many people are making the switch to Flash!"
+
+User.create(
+  first_name: "Bruce",
+  last_name: "Banner",
+  alias: "Hulk",
+  role: "Superhero",
+  power: "fort",
+  rating: 2.5,
+  email: "hulk@gmail.com",
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+User.create(
+  first_name: "Diana",
+  last_name: "Princess",
+  alias: "Wonderman",
+  role: "Superhero",
+  power: "amazone",
+  rating: 2.5,
+  email: "wonderwoman@gmail.com",
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+User.create(
+  first_name: "Selina",
+  last_name: "Kyle",
+  alias: "Catwoman",
+  role: "Superhero",
+  power: "voleuse",
+  rating: 4.5,
+  email: "catwoman@gmail.com",
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+User.create(
+  first_name: "Natasha",
+  last_name: "Romanoff",
+  alias: "Black Widow",
+  role: "Superhero",
+  power: "assassin",
+  rating: 4.5,
+  email: "black_widow@gmail.com",
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+User.create(
+  first_name: "Elektra",
+  last_name: "Natchios",
+  alias: "Elektra",
+  role: "Superhero",
+  power: "assassin",
+  rating: 3.5,
+  email: "elektra@gmail.com",
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
 )
 
 
