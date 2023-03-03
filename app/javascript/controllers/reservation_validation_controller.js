@@ -12,7 +12,7 @@ export default class extends Controller {
 
   send(event) {
 
-    event.preventDefault()
+    // event.preventDefault()
     console.log("Action")
     const form = event.target
     const url = form.action
@@ -22,6 +22,8 @@ export default class extends Controller {
     this.acceptedTargets.forEach((item) => {
       item.classList.toggle("d-none");
     })
+
+    event.target.classList.toggle("d-none")
 
     fetch(url, {
       method: "PATCH",

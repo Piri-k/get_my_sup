@@ -46,7 +46,7 @@
               <p class="card-text border p-1  "><i class="fa-solid fa-message"></i> <%= reservation.message %></p>
               <div data-reservation-validation-target="accepted" class=<%= reservation.accepted ? "d-none" : "hello" %> >
               <% if policy(Reservation).edit? %>
-                <%= simple_form_for([reservation.service, reservation], data: { reservation_validation_target: "form", action: "submit->reservation-validation#send" })  do |f| %>
+                <%= simple_form_for([reservation.service, reservation], data: { reservation_validation_target: "form", action: "submit->reservations#update" })  do |f| %>
                   <%= f.submit label: "Accept this reservation?"%>
                 <% end %>
               <% end %>
