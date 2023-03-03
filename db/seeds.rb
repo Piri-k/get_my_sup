@@ -211,7 +211,7 @@ User.create(
 
 
 Service.create(
-  user_id: 2,
+  user_id: User.all.sample,
   title: 'Pest Control',
   content: 'Greetings! I am Batman, and I am here to offer you my unparalleled pest control services.
   As a superhero dedicated to protecting Gotham City,
@@ -226,7 +226,7 @@ Service.create(
   )
 
 Service.create(
-  user_id: 6,
+  user_id: User.all.sample,
   title: 'Flashcard duty',
   content: "Hello there! I'm Flash, and I'm excited to introduce you to our Flashcard Duty Help service,
   designed to make studying with flashcards easier and more effective than ever before.
@@ -240,7 +240,7 @@ Service.create(
   )
 
 Service.create(
-  user_id: 3,
+  user_id: User.all.sample,
   title: 'Shave and hairdressing',
   content: "Greetings! I am Wolverine, and I am here to offer you my unbeatable barber services.
   As a skilled and experienced warrior, I have mastered the art of precision and attention to detail, which translates seamlessly into my barbering.
@@ -254,7 +254,7 @@ Service.create(
   )
 
 Service.create(
-  user_id: 4,
+  user_id: User.all.sample,
   title: 'Personnal Weaver',
   content: "Hey there! I'm Spider-Man, and I'm excited to offer you my expert weaver services.
   As a skilled spider, I know a thing or two about spinning webs and creating intricate designs, which translates seamlessly into my weaving.
@@ -267,7 +267,7 @@ Service.create(
   )
 
 Service.create(
-  user_id: 5,
+  user_id: User.all.sample,
   title: 'Deadpool Nanny Service',
   content: "Hey there! I'm Deadpool, and I'm here to offer you my one-of-a-kind nanny services.
   As a skilled mercenary with a heart of gold (well, sort of),
@@ -287,7 +287,7 @@ Service.create(
   )
 
 Service.create(
-  user_id: 1,
+  user_id: User.all.sample,
   title: 'Superman Pottery Lessons',
   content: "Hello there! I'm Superman, and I'm excited to offer you my unique pottery lessons. As a superhero with superhuman strength and dexterity,
    I have mastered the art of precision and attention to detail, which translates seamlessly into my pottery.
@@ -304,8 +304,8 @@ Service.create(
 
 
 Reservation.create(
-  service_id: 1,
-  user_id: 1,
+  service_id: Service.all.sample,
+  user_id: User.all.sample,
   start_at: Time.now,
   end_at: Time.now,
   message: "bcjc<:n:l!xn sl!k ",
